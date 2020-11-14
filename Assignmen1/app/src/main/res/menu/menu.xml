@@ -7,8 +7,9 @@
         android:title="Add"
         app:showAsAction="always"/>
 
-    <item android:id="@+id/action_settings"
-        android:title="Setting"
-        app:showAsAction="never"/>
+    <item android:id="@+id/logout"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:title="Logout"
+        app:showAsAction="always"/>
 
 </menu>

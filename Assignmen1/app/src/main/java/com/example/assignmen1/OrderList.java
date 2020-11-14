@@ -75,6 +75,11 @@ public class OrderList extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), AddOrder.class));
             return true;
         }
+        if(item.getItemId() == R.id.logout){
+            startActivity(new Intent(OrderList.this, MainActivity.class));
+            Toast.makeText(OrderList.this, "Logout!!!", Toast.LENGTH_SHORT).show();
+            finish();
+        }
         return true;
     }
 }

@@ -21,10 +21,21 @@ public class MainActivity extends AppCompatActivity {
         EditText pwd = findViewById(R.id.passwordText);
 
         button.setOnClickListener(v -> {
-            if(nameText.getText().toString().equals("3756868") && pwd.getText().toString().equals("123456")) {
-
+            if(nameText.getText().toString().equals("") && pwd.getText().toString().equals("")){
+                Toast.makeText(MainActivity.this, "ID and Password must not be empty", Toast.LENGTH_SHORT).show();
+            }
+            if(nameText.getText().toString().equals("")){
+                Toast.makeText(MainActivity.this, "ID must not be empty", Toast.LENGTH_SHORT).show();
+            }
+            else if(pwd.getText().toString().equals("")){
+                Toast.makeText(MainActivity.this, "Password must not be empty", Toast.LENGTH_SHORT).show();
+            }
+            else if(nameText.getText().toString().equals("3756868") && pwd.getText().toString().equals("123456")) {
+                nameText.getText().clear();
+                pwd.getText().clear();
                 startActivity(new Intent(MainActivity.this, OrderList.class));
                 Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+
             }
             else {
                 Toast.makeText(MainActivity.this, "Wrong Staff ID or Password, Please Try Again", Toast.LENGTH_SHORT).show();

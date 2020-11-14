@@ -1,5 +1,6 @@
 package com.example.assignmen1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ButtonBarLayout;
 
 import java.util.Objects;
 
@@ -15,6 +17,7 @@ public class AddOrder extends AppCompatActivity {
     EditText editTextTable, editTextOrder;
     Button button;
     String id, edit;
+    Button button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class AddOrder extends AppCompatActivity {
 
         button = findViewById(R.id.button);
         editTextOrder.setOnFocusChangeListener((v, hasFocus) -> editTextOrder.setSelection(editTextOrder.getText().toString().length()));
+
 
         id = getIntent().getStringExtra("id");
         edit = getIntent().getStringExtra("edit");
@@ -92,6 +96,7 @@ public class AddOrder extends AppCompatActivity {
             finish();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

@@ -13,7 +13,7 @@ public class MainAdapter extends BaseAdapter {
 
     Context context;
     ArrayList<OrderModel> list;
-    private LayoutInflater mLayoutInflater = null;
+    private final LayoutInflater mLayoutInflater;
 
     public MainAdapter(Context context, ArrayList<OrderModel> list){
         this.context = context;
