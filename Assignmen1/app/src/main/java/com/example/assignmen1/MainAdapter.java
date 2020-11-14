@@ -28,17 +28,17 @@ public class MainAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int indexPosition) {
-        return indexPosition;
+    public Object getItem(int index) {
+        return index;
     }
 
     @Override
-    public long getItemId(int indexPosition) {
-        return indexPosition;
+    public long getItemId(int index) {
+        return index;
     }
 
     @Override
-    public View getView(int indexPosition, View v, ViewGroup parent) {
+    public View getView(int index, View v, ViewGroup parent) {
         ViewOrderPlace viewPlace;
         if(v == null){
             v = mLayoutInflater.inflate(R.layout.order_listview, parent, false);
@@ -49,7 +49,7 @@ public class MainAdapter extends BaseAdapter {
             viewPlace = (ViewOrderPlace) v.getTag();
         }
 
-        OrderModel orderModel = list.get(indexPosition);
+        OrderModel orderModel = list.get(index);
         String tableNumber = orderModel.getTableNumber();
         String orderDetail = orderModel.getOrderDetail();
         viewPlace.tableNumber.setText(tableNumber);

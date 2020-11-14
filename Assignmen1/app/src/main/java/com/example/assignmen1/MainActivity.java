@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             if(nameText.getText().toString().equals("") && pwd.getText().toString().equals("")){
                 Toast.makeText(MainActivity.this, "ID and Password must not be empty", Toast.LENGTH_SHORT).show();
             }
-            if(nameText.getText().toString().equals("")){
+            else if(nameText.getText().toString().equals("")){
                 Toast.makeText(MainActivity.this, "ID must not be empty", Toast.LENGTH_SHORT).show();
             }
             else if(pwd.getText().toString().equals("")){
@@ -35,14 +35,13 @@ public class MainActivity extends AppCompatActivity {
                 pwd.getText().clear();
                 startActivity(new Intent(MainActivity.this, OrderList.class));
                 Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-
             }
             else {
                 Toast.makeText(MainActivity.this, "Wrong Staff ID or Password, Please Try Again", Toast.LENGTH_SHORT).show();
             }
         });
 
-        }
+    }
 
 }
 
