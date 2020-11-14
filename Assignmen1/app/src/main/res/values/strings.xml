@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Crud Array</string>
-    <string name="title_activity_add_barang">AddBarangActivity</string>
+    <string name="app_name">Food Order App</string>
+    <string name="title_activity_add_order">AddOrderActivity</string>
 </resources>

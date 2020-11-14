@@ -28,40 +28,41 @@ public class MainAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return position;
+    public Object getItem(int indexPosition) {
+        return indexPosition;
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public long getItemId(int indexPosition) {
+        return indexPosition;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder;
-        if(convertView == null){
-            convertView = mLayoutInflater.inflate(R.layout.order_listview, parent, false);
-            viewHolder = new ViewHolder(convertView);
-            convertView.setTag(viewHolder);
-        }else{
-            viewHolder = (ViewHolder) convertView.getTag();
+    public View getView(int indexPosition, View v, ViewGroup parent) {
+        ViewOrderPlace viewPlace;
+        if(v == null){
+            v = mLayoutInflater.inflate(R.layout.order_listview, parent, false);
+            viewPlace = new ViewOrderPlace(v);
+            v.setTag(viewPlace);
+        }
+        else{
+            viewPlace = (ViewOrderPlace) v.getTag();
         }
 
-        OrderModel orderModel = list.get(position);
+        OrderModel orderModel = list.get(indexPosition);
         String tableNumber = orderModel.getTableNumber();
         String orderDetail = orderModel.getOrderDetail();
-        viewHolder.tableNumber.setText(tableNumber);
-        viewHolder.orderDetail.setText(orderDetail);
-        return convertView;
+        viewPlace.tableNumber.setText(tableNumber);
+        viewPlace.orderDetail.setText(orderDetail);
+        return v;
     }
 
-    private  class ViewHolder {
+    private static class ViewOrderPlace {
         public TextView tableNumber;
         public TextView orderDetail;
-        public ViewHolder(View base) {
-            tableNumber = base.findViewById(R.id.textView);
-            orderDetail = base.findViewById(R.id.textView2);
+        public ViewOrderPlace(View view) {
+            tableNumber = view.findViewById(R.id.textView);
+            orderDetail = view.findViewById(R.id.textView2);
 
         }
     }
