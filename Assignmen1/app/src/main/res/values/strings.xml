@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Assignmen1</string>
+    <string name="app_name">Crud Array</string>
+    <string name="title_activity_add_barang">AddBarangActivity</string>
 </resources>

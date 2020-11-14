@@ -15,6 +15,13 @@ public class MainAdapter extends BaseAdapter {
     ArrayList<OrderModel> list;
     private LayoutInflater mLayoutInflater = null;
 
+    public MainAdapter(Context context, ArrayList<OrderModel> list){
+        this.context = context;
+        this.list = list;
+        mLayoutInflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
     @Override
     public int getCount() {
         return list.size();
@@ -53,8 +60,8 @@ public class MainAdapter extends BaseAdapter {
         public TextView tableNumber;
         public TextView orderDetail;
         public ViewHolder(View base) {
-            tableNumber = (TextView) base.findViewById(R.id.textView);
-            orderDetail = (TextView) base.findViewById(R.id.textView2);
+            tableNumber = base.findViewById(R.id.textView);
+            orderDetail = base.findViewById(R.id.textView2);
 
         }
     }
