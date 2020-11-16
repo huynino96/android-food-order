@@ -53,17 +53,21 @@ public class MainAdapter extends BaseAdapter {
         OrderModel orderModel = list.get(index);
         String tableNumber = orderModel.getTableNumber();
         String orderDetail = orderModel.getOrderDetail();
+        String orderNote = orderModel.getOrderNote();
         viewPlace.tableNumber.setText(tableNumber);
         viewPlace.orderDetail.setText(orderDetail);
+        viewPlace.orderNote.setText(orderNote);
         return v;
     }
 
     private static class ViewOrderPlace {
         public TextView tableNumber;
         public TextView orderDetail;
+        public TextView orderNote;
         public ViewOrderPlace(View view) {
             tableNumber = view.findViewById(R.id.textView);
             orderDetail = view.findViewById(R.id.textView2);
+            orderNote = view.findViewById(R.id.textView3);
 
         }
     }

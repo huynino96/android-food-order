@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class AddOrder extends AppCompatActivity {
 
-    EditText editTextTable, editTextOrder;
+    EditText editTextTable, editTextOrder, editTextNote;
     Button button;
     String id, edit;
     Button button1;
@@ -27,9 +27,11 @@ public class AddOrder extends AppCompatActivity {
 
         editTextTable = findViewById(R.id.edit_text_table_number);
         editTextOrder = findViewById(R.id.edit_text_order_detail);
+        editTextNote = findViewById(R.id.edit_text_order_note);
 
         button = findViewById(R.id.button);
         editTextOrder.setOnFocusChangeListener((v, hasFocus) -> editTextOrder.setSelection(editTextOrder.getText().toString().length()));
+        editTextNote.setOnFocusChangeListener((v, hashCode) -> editTextNote.setSelection(editTextNote.getText().toString().length()));
 
 
         id = getIntent().getStringExtra("id");
@@ -44,8 +46,10 @@ public class AddOrder extends AppCompatActivity {
             if (edit.equals("yes")) {
                 String tableNumber = OrderList.orderList.get(Integer.parseInt(id)).getTableNumber();
                 String orderDetail = OrderList.orderList.get(Integer.parseInt(id)).getOrderDetail();
+                String orderNote = OrderList.orderList.get(Integer.parseInt(id)).getOrderNote();
                 editTextTable.setText(tableNumber);
                 editTextOrder.setText(orderDetail);
+                editTextNote.setText(orderNote);
                 editTextTable.setSelection(tableNumber.length());
             }
         }
@@ -55,6 +59,7 @@ public class AddOrder extends AppCompatActivity {
         button.setOnClickListener(v -> {
             String tableNumber = editTextTable.getText().toString();
             String orderDetail = editTextOrder.getText().toString();
+            String orderNote = editTextNote.getText().toString();
             if(tableNumber.equals("")){
                 editTextTable.setError("Please Provide Table Number");
                 editTextTable.requestFocus();
@@ -80,6 +85,7 @@ public class AddOrder extends AppCompatActivity {
                     orderModel.setOrderId(String.valueOf(idMax+1));
                     orderModel.setTableNumber(tableNumber);
                     orderModel.setOrderDetail(orderDetail);
+                    orderModel.setOrderNote(orderNote);
                     OrderList.orderList.add(orderModel);
                     Toast.makeText(AddOrder.this, "Order Has Been Added", Toast.LENGTH_SHORT).show();
                     OrderList.adapter.notifyDataSetChanged();

@@ -60,6 +60,7 @@ public class OrderList extends AppCompatActivity {
         orderModel.setOrderId("1");
         orderModel.setTableNumber("12");
         orderModel.setOrderDetail("1 x Cơm chiên, 2 x Canh Chua");
+        orderModel.setOrderNote("Không hành");
         orderList.add(orderModel);
     }
 
