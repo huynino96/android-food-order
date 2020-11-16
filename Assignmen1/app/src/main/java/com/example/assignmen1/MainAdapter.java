@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+// Adapter for ListView. Tutorials and Guides can be found at: https://guides.codepath.com/android/Using-a-BaseAdapter-with-ListView
 public class MainAdapter extends BaseAdapter {
 
     Context context;

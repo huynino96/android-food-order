@@ -35,7 +35,7 @@ public class AddOrder extends AppCompatActivity {
         id = getIntent().getStringExtra("id");
         edit = getIntent().getStringExtra("edit");
         checkEditNotNull();
-        onClicked();
+        onClickedOrder();
 
     }
 
@@ -51,7 +51,7 @@ public class AddOrder extends AppCompatActivity {
         }
     }
 
-    private void onClicked() {
+    private void onClickedOrder() {
         button.setOnClickListener(v -> {
             String tableNumber = editTextTable.getText().toString();
             String orderDetail = editTextOrder.getText().toString();
@@ -63,7 +63,7 @@ public class AddOrder extends AppCompatActivity {
                 editTextOrder.setError("Please provide Order Detail");
                 editTextOrder.requestFocus();
             }
-            else{
+            else {
                 if(edit != null ) {
                     if (edit.equals("yes")) {
                         OrderModel orderModel = new OrderModel();
@@ -74,7 +74,7 @@ public class AddOrder extends AppCompatActivity {
                         finish();
                     }
                 }
-                else{
+                else {
                     int idMax = OrderList.orderList.size();
                     OrderModel orderModel = new OrderModel();
                     orderModel.setOrderId(String.valueOf(idMax+1));
