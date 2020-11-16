@@ -4,6 +4,7 @@ public class OrderModel {
     String OrderId;
     String tableNumber;
     String orderDetail;
+    String orderNote;
 
     public String getOrderId() {
         return OrderId;
@@ -27,5 +28,13 @@ public class OrderModel {
 
     public void setOrderDetail(String orderDetail) {
         this.orderDetail = orderDetail;
+    }
+
+    public String getOrderNote() {
+        return orderNote;
+    }
+
+    public void setOrderNote(String orderNote) {
+        this.orderNote = orderNote;
     }
 }
