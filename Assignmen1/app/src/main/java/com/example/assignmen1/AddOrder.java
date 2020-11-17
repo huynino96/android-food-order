@@ -1,6 +1,8 @@
 package com.example.assignmen1;
 
-import android.content.Intent;
+import android.app.NotificationManager;
+import android.content.Context;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -8,16 +10,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ButtonBarLayout;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 
 import java.util.Objects;
 
 public class AddOrder extends AppCompatActivity {
 
+    // NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
     EditText editTextTable, editTextOrder, editTextNote;
     Button button;
     String id, edit;
-    Button button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class AddOrder extends AppCompatActivity {
         edit = getIntent().getStringExtra("edit");
         checkEditNotNull();
         onClickedOrder();
+        sendNotification();
 
     }
 
@@ -104,5 +109,18 @@ public class AddOrder extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void sendNotification(){
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "My Notify")
+                .setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle("My Notification")
+                .setContentText("Order Added")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        int notificationId = 1;
+        notificationManager.notify(notificationId, builder.build());
+
     }
 }

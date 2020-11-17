@@ -2,6 +2,8 @@ package com.example.assignmen1;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -30,6 +32,7 @@ public class OrderList extends AppCompatActivity {
         adapter = new MainAdapter(getApplicationContext(), orderList);
         listView.setAdapter(adapter);
         listView.deferNotifyDataSetChanged();
+        sendNotification();
         onItemClicked();
 
     }
@@ -53,6 +56,19 @@ public class OrderList extends AppCompatActivity {
             });
             builder.show();
         });
+    }
+
+    private void sendNotification(){
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "My Notify")
+                .setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle("My Notification")
+                .setContentText("Order Added")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        int notificationId = 1;
+        notificationManager.notify(notificationId, builder.build());
+
     }
 
     private void addDummyOrder() {
