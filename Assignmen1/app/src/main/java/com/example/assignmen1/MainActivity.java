@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 showLoginNotification();
                 startActivity(new Intent(MainActivity.this, OrderList.class));
                 Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                finish();
             }
             else {
                 Toast.makeText(MainActivity.this, "Wrong Staff ID or Password, Please Try Again", Toast.LENGTH_SHORT).show();
