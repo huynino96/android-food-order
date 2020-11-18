@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -62,6 +63,7 @@ public class AddOrder extends AppCompatActivity {
 
     private void onClickedOrder() {
         button.setOnClickListener(v -> {
+            NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
             String tableNumber = editTextTable.getText().toString();
             String orderDetail = editTextOrder.getText().toString();
             String orderNote = editTextNote.getText().toString();
@@ -93,6 +95,7 @@ public class AddOrder extends AppCompatActivity {
                     orderModel.setOrderNote(orderNote);
                     OrderList.orderList.add(orderModel);
                     Toast.makeText(AddOrder.this, "Order Has Been Added", Toast.LENGTH_SHORT).show();
+                    showNotification();
                     OrderList.adapter.notifyDataSetChanged();
                     finish();
                 }
@@ -100,6 +103,16 @@ public class AddOrder extends AppCompatActivity {
         });
     }
 
+    private void showNotification(){
+            NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(AddOrder.this, "My Notification")
+                    .setContentTitle("My Notification")
+                    .setContentText("Order Added")
+                    .setSmallIcon(R.mipmap.ic_launcher);
+
+            manager.notify(1, builder.build());
+
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
