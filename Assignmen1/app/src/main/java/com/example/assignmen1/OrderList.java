@@ -58,10 +58,24 @@ public class OrderList extends AppCompatActivity {
     private void addDummyOrder() {
         OrderModel orderModel = new OrderModel();
         orderModel.setOrderId("1");
-        orderModel.setTableNumber("12");
-        orderModel.setOrderDetail("1 x Cơm chiên, 2 x Canh Chua");
-        orderModel.setOrderNote("Không hành");
+        orderModel.setTableNumber("2");
+        orderModel.setOrderDetail("1 x Spaghetti, 2 x Steak");
+        orderModel.setOrderNote("1 Medium Rare Steak and 1 Well-done");
         orderList.add(orderModel);
+
+        OrderModel orderModel1 = new OrderModel();
+        orderModel1.setOrderId("2");
+        orderModel1.setTableNumber("3");
+        orderModel1.setOrderDetail("1 x Burger, 3 x Fried Chickens");
+        orderModel1.setOrderNote("No Tomatoes for Burger");
+        orderList.add(orderModel1);
+
+        OrderModel orderModel2 = new OrderModel();
+        orderModel2.setOrderId("5");
+        orderModel2.setTableNumber("5");
+        orderModel2.setOrderDetail("1 x Burger, 2 x Fried Chickens, 3 x Medium Chips, 1 x Steak");
+        orderModel2.setOrderNote("Extra Spicy for Chickens, Medium Rare Steak");
+        orderList.add(orderModel2);
     }
 
     @Override
