@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,7 @@ public class AddOrder extends AppCompatActivity {
         editTextNote = findViewById(R.id.edit_text_order_note);
 
         button = findViewById(R.id.button);
+        editTextTable.setInputType(InputType.TYPE_CLASS_NUMBER);
         editTextOrder.setOnFocusChangeListener((v, hasFocus) -> editTextOrder.setSelection(editTextOrder.getText().toString().length()));
         editTextNote.setOnFocusChangeListener((v, hashCode) -> editTextNote.setSelection(editTextNote.getText().toString().length()));
 
